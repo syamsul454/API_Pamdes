@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login','AuthController@login');
 Route::post('register','AuthController@signup');
+Route::post('data-desa','DesaController@view');
 Route::get('pelanggan','PelangganController@view')->middleware('auth:api');
 Route::post('pelanggan','PelangganController@add')->middleware('auth:api');
 Route::post('add-debit-air','TransactionController@add')->middleware('auth:api');
