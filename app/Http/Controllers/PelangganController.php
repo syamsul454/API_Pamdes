@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Pelanggan;
+use Illuminate\Http\Request;
 
 class PelangganController extends Controller
 {
@@ -21,19 +21,37 @@ class PelangganController extends Controller
             'jenis_kelamin' => 'required',
             'nomor_kk' => 'required',
             'id_dusun' => 'required',
-            'alamat' => 'required'
+            'alamat' => 'required',
         ]);
 
         $pelanggan = Pelanggan::add($request);
         if ($pelanggan) {
             return response()->json(['message' => 'success', 'data' => $pelanggan], 200);
         }
-            return response()->json(['message' => 'register Failed'],403);
+        return response()->json(['message' => 'register Failed'], 403);
 
     }
 
-    public function update()
+    public function update(Pelanggan $pelanggan, Request $request)
     {
-        
+        $pelanggan->name = request('name', $pelanggan->name);
+        $pelanggan->nomor_telepon = request('nomor_telepon', $pelanggan->nomor_telepon);
+        $pelanggan->jenis_kelamin = request('jenis_kelamin', $pelanggan->jenis_kelamin);
+        $pelanggan->nomor_kk = request('nomor_kk', $pelanggan->nomor_kk);
+        $pelanggan->alamat = request('alamat', $pelanggan->alamat);
+        $pelanggan->id_dusun = request('id_dusun', $pelanggan->id_dusun);
+        $pelanggan->save();
+        if (!$pelanggan) {
+            return response()->json(['message' => 'gagal edit'], 403);
+        }
+        return response()->json(['message' => 'success', 'data' => $pelanggan], 200);
+    }
+    public function delete(Pelanggan $pelanggan)
+    {
+        $delete = $pelanggan->delete();
+        if (!$delete) {
+            return response()->json(['message' => 'error'],403);
+        }
+        return response()->json(['message' => 'success'],200);
     }
 }

@@ -19,5 +19,8 @@ Route::post('register','AuthController@signup');
 Route::get('data-desa','DesaController@view');
 Route::get('pelanggan','PelangganController@view')->middleware('auth:api');
 Route::post('pelanggan','PelangganController@add')->middleware('auth:api');
+Route::put('pelanggan/{pelanggan}','PelangganController@update')->middleware('auth:api');
+Route::delete('pelanggan/{pelanggan}','PelangganController@delete')->middleware('auth:api');
+//Route::put('pelanggan/{pelanggan}','PelangganController@update')->middleware('auth:api');
 Route::post('add-debit-air','TransactionController@add')->middleware('auth:api');
 

@@ -16,12 +16,13 @@ class CreatePelanggansTable extends Migration
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('nomor_telepon');
+            $table->bigInteger('nomor_telepon');
             $table->string('jenis_kelamin');
-            $table->integer('nomor_kk');
+            $table->bigInteger('nomor_kk');
             $table->integer('id_dusun');
             $table->text('alamat');
             $table->timestamps();
+            
         });
     }
 

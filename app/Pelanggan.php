@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pelanggan extends Model
 {
-    
+    public $timestamps = true;
     protected $fillable = ['name','nomor_telepon','jenis_kelamin','nomor_kk','id_dusun','alamat'];
     public function dusun()
     {
