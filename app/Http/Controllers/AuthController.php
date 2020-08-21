@@ -72,6 +72,7 @@ class AuthController extends Controller
         }
         $user = $request->user();
         $success['token'] =  $user->createToken('token')->accessToken;
+        $success['name'] = $user->username;
         return response()->json($success, 200);
     }
 
@@ -89,7 +90,6 @@ class AuthController extends Controller
             return $this->sendResponse($error);
         }
             
-        
     }
 
     //getuser

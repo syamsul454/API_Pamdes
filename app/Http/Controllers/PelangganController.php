@@ -54,4 +54,13 @@ class PelangganController extends Controller
         }
         return response()->json(['message' => 'success'],200);
     }
+
+    public function checkPelanggan($codePelanggan)
+    {
+        $pelanggan = Pelanggan::where('code_pelanggan',$codePelanggan)->first();
+        if ($pelanggan) {
+            return response()->json(['message' => 'success get data', 'data' => $pelanggan], 200);
+        }
+            return response()->json(['message' => 'gagal get data'],403);
+    }
 }
