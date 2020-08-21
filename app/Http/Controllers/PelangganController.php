@@ -10,7 +10,7 @@ class PelangganController extends Controller
     public function view()
     {
         $pelanggan = Pelanggan::with('dusun')->get();
-        return response()->json(['message' => 'success get Data', 'data' => $pelanggan], 200);
+        return response()->json( $pelanggan,200);
     }
 
     public function add(Request $request)
