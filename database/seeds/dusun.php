@@ -31,14 +31,14 @@ class dusun extends Seeder
 
         foreach ($dusun2 as $dusun) {
             DB::table('dusuns')->insert([
-                'desa_id' => 2,
+                'desa_id' => 3,
                 'name' => $dusun
             ]);
         }
 
         foreach ($dusun3 as $dusun) {
             DB::table('dusuns')->insert([
-                'desa_id' => 3,
+                'desa_id' => 4,
                 'name' => $dusun
             ]);
         }

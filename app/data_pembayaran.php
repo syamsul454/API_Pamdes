@@ -10,7 +10,7 @@ class data_pembayaran extends Model
 
     public function debitAir()
     {
-        return $this->belongsTo('App\data_debit_air', 'id_debit_air')->with('pelanggan');
+        return $this->belongsTo('App\data_debit_air', 'id_debit_air')->with('pelanggan');   
     }
 
     public static function insert($debit)
