@@ -20,6 +20,12 @@ class TransactionController extends Controller
         $pelanggan = $request->all();
         $data = json_encode($pelanggan);
         $dataDebitAir = data_debit_air::insert($request);
-        data_pembayaran::insert($dataDebitAir);
+        $pembayaran = data_pembayaran::insert($dataDebitAir);
+        return response()->json(['message' => 'sucesss', 'data' => $pembayaran],200);
+    }
+
+    public function listPembayaran()
+    {
+       return data_pembayaran::with('debitAir')->get();
     }
 }

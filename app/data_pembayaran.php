@@ -8,6 +8,11 @@ class data_pembayaran extends Model
 {
     protected $fillable = ['id_debit_air', 'harga_M3', 'beban', 'jumlah_pembayaran', 'tanggal_pembayaran','status'];
 
+    public function debitAir()
+    {
+        return $this->belongsTo('App\data_debit_air', 'id_debit_air')->with('pelanggan');
+    }
+
     public static function insert($debit)
     {
         $jumlahpembayaran = 500 * $debit->pemakain + 1500;
@@ -19,5 +24,8 @@ class data_pembayaran extends Model
             'tanggal_pembayaran' => date("Y-m-d H:i:s"),
             'status' => 0,
         ]);
+
+        return $jumlahpembayaran;
     }
+
 }

@@ -17,10 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::post('login','AuthController@login');
 Route::post('register','AuthController@signup');
 Route::get('data-desa','DesaController@view');
+Route::get('data-dusun/{id}','DesaController@dusun');
 Route::get('pelanggan','PelangganController@view');
 Route::post('pelanggan','PelangganController@add');
-Route::get('check-pelanggan/{codePelanggan}','PelangganController@checkPelanggan')->middleware('auth:api');
+Route::get('check-pelanggan/{codePelanggan}','PelangganController@checkPelanggan');
 Route::put('pelanggan/{pelanggan}','PelangganController@update')->middleware('auth:api');
 Route::delete('pelanggan/{pelanggan}','PelangganController@delete')->middleware('auth:api');
-Route::post('add-debit-air','TransactionController@add')->middleware('auth:api');
+Route::post('add-debit-air','TransactionController@add');
+Route::get('list-pembayaran','TransactionController@listPembayaran');
 

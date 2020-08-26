@@ -8,6 +8,11 @@ class data_debit_air extends Model
 {
     protected $fillable = ['pelanggan_id', 'pegawai_id', 'meter_awal', 'meter_akhir', 'pemakain'];
 
+
+    public function pelanggan()
+    {
+        return $this->belongsTo('App\Pelanggan','pelanggan_id')->with('dusun');
+    }
     public static function insert($request)
     {
        
@@ -20,7 +25,8 @@ class data_debit_air extends Model
                 'meter_awal' => $request->meter_akhir,
                 'pemakain' => $request->meter_akhir,
             ]);
-        }
+            return $add;
+        } 
             $meterawal = $pelanggan->meter_akhir;
             $pemakain = $request->meter_akhir - $pelanggan->meter_akhir ;
             $add = self::create([

@@ -12,7 +12,7 @@ class desa extends Seeder
      */
     public function run()
     {
-        $desa = ['PRINGGASELA','JURIT','PRINGGASELA SELATAN','JURIT BARU','AIK DEWA','PENGANDANGAN BARAT','REMPUNG','TIMBANUH','PRINGGASELA TIMUR','PENGANDANGAN'];
+        $desa = ['PRINGGASELA','PRINGGASELA SELATAN','AIK DEWA','TIMBANUH','PRINGGASELA TIMUR'];
        foreach ($desa as $d) {
            DB::table('desas')->insert([
                'name' => $d,
