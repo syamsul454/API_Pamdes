@@ -21,8 +21,8 @@ Route::get('data-dusun/{id}','DesaController@dusun');
 Route::get('pelanggan','PelangganController@view');
 Route::post('pelanggan','PelangganController@add');
 Route::get('check-pelanggan/{codePelanggan}','PelangganController@checkPelanggan');
-Route::put('pelanggan/{pelanggan}','PelangganController@update')->middleware('auth:api');
-Route::delete('pelanggan/{pelanggan}','PelangganController@delete')->middleware('auth:api');
+Route::put('pelanggan/{pelanggan}','PelangganController@update');
+Route::delete('pelanggan/{pelanggan}','PelangganController@delete');
 Route::post('add-debit-air','TransactionController@add');
 Route::get('list-pembayaran','TransactionController@listPembayaran');
 
