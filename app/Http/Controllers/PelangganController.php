@@ -13,6 +13,12 @@ class PelangganController extends Controller
         return response()->json( $pelanggan,200);
     }
 
+    public function listPelanggan($idDusun)
+    {
+        $pelanggan = Pelanggan::with('dusun')->where('id_dusun',$idDusun)->get();
+        return response()->json( $pelanggan,200);
+    }
+
     public function add(Request $request)
     {
         $request->validate([
