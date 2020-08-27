@@ -38,6 +38,6 @@ class TransactionController extends Controller
             $q->where('pelanggan_id',$idPelanggan);
         })->where('status', 0)->latest()->get()->sum('jumlah_pembayaran');
 
-        return response()->json(['data' => $data, 'jumlah tunggakan' => $tunggakan], 200);
+        return response()->json(['data' => $data, 'jumlah_tunggakan' => $tunggakan], 200);
     }
 }
