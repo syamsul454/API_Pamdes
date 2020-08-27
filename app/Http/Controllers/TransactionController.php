@@ -28,4 +28,16 @@ class TransactionController extends Controller
     {
        return data_pembayaran::with('debitAir')->get();
     }
+
+    public function listPembayaranIdpelanggan($idPelanggan)
+    {
+        $data = data_pembayaran::with('debitAir')->whereHas('debitAir',function($q)use($idPelanggan){
+            $q->where('pelanggan_id',$idPelanggan);
+        })->latest()->get();
+        $tunggakan = data_pembayaran::with('debitAir')->whereHas('debitAir',function($q)use($idPelanggan){
+            $q->where('pelanggan_id',$idPelanggan);
+        })->where('status', 0)->latest()->get()->sum('jumlah_pembayaran');
+
+        return response()->json(['data' => $data, 'jumlah tunggakan' => $tunggakan], 200);
+    }
 }

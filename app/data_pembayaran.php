@@ -27,5 +27,6 @@ class data_pembayaran extends Model
 
         return $jumlahpembayaran;
     }
+   
 
 }
