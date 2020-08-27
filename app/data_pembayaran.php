@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class data_pembayaran extends Model
 {
     protected $fillable = ['id_debit_air', 'harga_M3', 'beban', 'jumlah_pembayaran', 'tanggal_pembayaran','status'];
+    protected $appends = ['months'];
 
     public function debitAir()
     {
@@ -28,5 +29,9 @@ class data_pembayaran extends Model
         return $jumlahpembayaran;
     }
    
+    public function getMonthsAttribute()
+    {
+        return date('F', strtotime($this->tanggal_pembayaran));
+    }
 
 }
