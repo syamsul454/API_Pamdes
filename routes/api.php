@@ -27,4 +27,6 @@ Route::delete('pelanggan/{pelanggan}','PelangganController@delete');
 Route::post('add-debit-air','TransactionController@add');
 Route::get('list-pembayaran','TransactionController@listPembayaran');
 Route::get('list-pembayaran/{idPelanggan}','TransactionController@listPembayaranIdpelanggan');
+Route::get('pembayaran/{pembayaran}','TransactionController@bayar');
+
 

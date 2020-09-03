@@ -40,4 +40,11 @@ class TransactionController extends Controller
 
         return response()->json(['data' => $data, 'jumlah_tunggakan' => $tunggakan], 200);
     }
+
+    public function bayar(data_pembayaran $pembayaran)
+    {
+       $pembayaran->status = 1;
+       $pembayaran->save();
+       return response()->json(['message' => 'success'], 200);
+    }
 }
