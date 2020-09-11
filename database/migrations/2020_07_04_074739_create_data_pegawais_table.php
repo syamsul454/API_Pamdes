@@ -23,7 +23,7 @@ class CreateDataPegawaisTable extends Migration
             $table->string('name');
             $table->string('nip');
             $table->string('jabatan');
-            $table->bigInteger('nomor_telepon');
+            $table->string('nomor_telepon');
             $table->text('alamat');
             $table->timestamps();
             
