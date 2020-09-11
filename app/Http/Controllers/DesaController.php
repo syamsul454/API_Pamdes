@@ -16,5 +16,10 @@ class DesaController extends Controller
     {
         return dusun::where('desa_id', $id)->get();
     }
+
+    public function listDusun()
+    {
+        return dusun::all();
+    }
     
 }
